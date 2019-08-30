@@ -1,0 +1,60 @@
+apiVersion: v1
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewBuild
+    creationTimestamp: null
+    labels:
+      build: ocp101-helloworld
+      app: ocp101-helloworld
+    name: ocp101-helloworld
+  spec:
+    lookupPolicy:
+      local: false
+  status:
+    dockerImageRepository: ""
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewBuild
+    creationTimestamp: null
+    labels:
+      build: ocp101-helloworld
+      app: ocp101-helloworld
+    name: ocp101-helloworld
+  spec:
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ocp101-helloworld:latest
+    postCommit: {}
+    resources: {}
+    source:
+      git:
+        uri: https://github.com/patricksimonian/ocp101-helloworld
+      type: Git
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: nodejs:10
+          namespace: openshift
+      type: Source
+    triggers:
+    - github:
+        secret: ffEmY3K42Ld8FvgSqMwe
+      type: GitHub
+    - generic:
+        secret: TW5zZaFYMGFERp7V0Jsb
+      type: Generic
+    - type: ConfigChange
+    - imageChange: {}
+      type: ImageChange
+  status:
+    lastVersion: 0
+kind: List
+metadata: {}
