@@ -1,0 +1,23 @@
+{
+  "name": "ocp101-helloworld",
+  "version": "1.0.0",
+  "description": "ocp101",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patricksimonian/ocp101-helloworld.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patricksimonian/ocp101-helloworld/issues"
+  },
+  "homepage": "https://github.com/patricksimonian/ocp101-helloworld#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
